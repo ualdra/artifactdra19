@@ -1,6 +1,6 @@
 # ArtifactDock
 
-En este archivo vamos a visualizar como recuperar datos de las cartas así como los precios de las mismas para poder realizar las distintas tareas del proyecto colectivo.
+En este archivo vamos a visualizar como recuperar datos de las cartas, así como los precios de las mismas para poder realizar las distintas tareas del proyecto colectivo.
 
 ## Recuperando las cartas
 
@@ -8,7 +8,7 @@ Para recuperar todas las cartas tenemos que realizar un par de llamadas a 2 pág
 
 ### Adquirir direcciones donde hallar las cartas
 
-Valve no deja en una ruta estática la información de todas las cartas, sino que genera una ruta dinámica cada vez que alguien hace una petición de las mismas, para ver cuales son las rutas generadas debemos visitar las dos direcciones que se muestran a continuación. 
+Valve no deja en una ruta estática la información de todas las cartas, sino que genera una ruta dinámica cada vez que alguien hace una petición de las mismas, para ver cuáles son las rutas generadas debemos visitar las dos direcciones que se muestran a continuación. 
 
 ```
 https://playartifact.com/cardset/00/
@@ -28,10 +28,9 @@ Estas dos direcciones mostrarán una respuesta de tipo JSON en la cual tendremos
 ```
 En este JSON tenemos que concatenar las cadenas de texto ofrecidas en el campo `cdn_root` y `url`.
 
-
 ### Descifrando las RESPONSES
 
-Una vez hemos concatenado esas cadenas haremos una petición GET a las mismas, la cual nos devolverá una gran array JSON de la que extraeremos toda la información necesaria de cada una de las cartas, el segundo enlace generado es el que tiene la mayor parte de información y cartas referentes a la expansión en activo, en este caso es la versión vanilla de Artifact, llamada CALL TO ARMS, como podemos ver en la response. 
+Una vez hemos concatenado esas cadenas haremos una petición GET a las mismas, la cual nos devolverá un gran array JSON de la que extraeremos toda la información necesaria de cada una de las cartas, el segundo enlace generado es el que tiene la mayor parte de información y cartas referentes a la expansión en activo, en este caso es la versión vanilla de Artifact, llamada CALL TO ARMS, como podemos ver en la response. 
 
 ```json
 {
@@ -80,7 +79,7 @@ Una vez hemos concatenado esas cadenas haremos una petición GET a las mismas, l
 }
 ```
 
-Una de las grandes ventajas es que tendremos información de las cartas en todos los idiomas, por lo que podriamos tener una aplicación poliglota desde el comienzo, sin un especial calentamiento de cabeza.
+Una de las grandes ventajas es que tendremos información de las cartas en todos los idiomas, por lo que podríamos tener una aplicación poliglota desde el comienzo, sin un especial calentamiento de cabeza.
 
 ## Tipos de cartas
 
@@ -88,13 +87,13 @@ En el este punto vamos a analizar los distintos tipos de cartas que encontramos 
 
 ### Heroes
 
-En el caso de los heroes nos encontramos con unas cartas que llevan asociadas 3 cartas iguales de distinto tipo, estas cartas van irremediablemente asocias con ese y solo ese heroe, y no pueden ser seleccionadas si no se coge al heroe determinado. Y no solo eso sino que en algunos casos el Heroe puede contener una habilidad de tipo activa o pasiva que forma parte de la `card_list` pero que no son cartas en si mismas, una excepción a esto es el heroe `Axe` que no cuenta con nínguna pasiva.
+En el caso de los héroes nos encontramos con unas cartas que llevan asociadas 3 cartas iguales de distinto tipo, estas cartas van irremediablemente asocias con ese y solo ese héroe, y no pueden ser seleccionadas si no se coge al héroe determinado. Y no solo eso sino que en algunos casos el Héroe puede contener una habilidad de tipo activa o pasiva que forma parte de la `card_list` pero que no son cartas en sí mismas, una excepción a esto es el héroe `Axe` que no cuenta con ninguna pasiva.
 
 Para entender mejor este tipo de cartas vamos a coger una como ejemplo.
 
 ![Kanna Card Image](./assets/kanna.png)
 
-Kanna es una carta de heroe azul, cada carta cuenta con un color de 4 posibles (azul, negro rojo, verde). Solo los objetos, que explicaremos mas adelante, no tienen ningún color. Una vez visto lo que vamos a hacer es ver el JSON object de la carta de kanna.
+Kanna es una carta de héroe azul, cada carta cuenta con un color de 4 posibles (azul, negro rojo, verde). Solo los objetos, que explicaremos mas adelante, no tienen ningún color. Una vez visto lo que vamos a hacer es ver el JSON object de la carta de kanna.
 ```json
 {
     "card_id": 10031,
@@ -203,17 +202,16 @@ Analizando el JSON, vemos una serie de cosas interesantes:
 
 1. Lo primero a parte del `card_id` es el `card_type` este campo denota el tipo de carta, en este caso `Hero`.
 2. También podemos ver que contamos con distintos campos que están en multilenguaje, como el texto de la carta, la imagen, etc.
-3. El caso de los heroes al contrario que el resto de cartas cuentan con una `mini_image` y con una `ingame_image`, estos campos con exclusivos de los heroes, y son pequeños iconos de los mismos.
+3. El caso de los héroes al contrario que el resto de las cartas cuentan con una `mini_image` y con una `ingame_image`, estos campos con exclusivos de los héroes, y son pequeños iconos de los mismos.
 4. `rarity` muestra la rareza de la carta, las cartas pueden ser `Common`, `Uncommon` y `Rare`.
 5. La propiedad `is_blue` denota que esta carta es de tipo azul, en el caso de que fuese de otro color, contaría con el campo `is_black`, `is_green`, `is_red` respectivamente.
 6. `item_def` es una id que utilizaremos a posteriori para buscar la cotización de la carta en el marketplace.
 7. Los campos `attack`, `hit_points` y `armor`(en caso de que tenga armadura), muestran el ataque, la vida y la armadura de la carta.
-8. Por ultimo en `references` contamos con las "cartas" relacionadas con este heroe, en etste caso contamos con dos.
+8. Por último en `references` contamos con las "cartas" relacionadas con este héroe, en este caso contamos con dos.
    * Por un lado la primera en la que encontramos un campo `count` y `ref_type: includes` lo cual nos hace saber que la carta asociada es una de las que he comentado antes que iba ligada al heroe.
-   * Y la otra, que como vemos es una `passive_ability` que indica la habilidad del heroe, por lo que sabemos que aunque se trate como tal, esto no es una carta propiamente dicha. Las habilidades de los heroes solo pueden ser de dos tipos `passive_ability` y `active_ability`.
+   * Y la otra, que como vemos es una `passive_ability` que indica la habilidad del héroe, por lo que sabemos que, aunque se trate como tal, esto no es una carta propiamente dicha. Las habilidades de los heroes solo pueden ser de dos tipos `passive_ability` y `active_ability`.
 
-Puede ser algo complejo entender este tipo de cartas, pero no dudeis en preguntar si hay algo que no entendáis.
-
+Puede ser algo complejo entender este tipo de cartas, pero no dudéis en preguntar si hay algo que no entendáis.
 
 ### Items
 
@@ -320,7 +318,7 @@ Los items cuentan con la particularidad de que son la única carta del juego que
 
 ### Otras
 
-Al igual que los heroes, el resto de cartas también puede tener otras "cartas" asociadas, me refiero a habilidades pasivas o activas relacionadas con las mismas, y corresponden a un color determinado.
+Al igual que los héroes, el resto de cartas también puede tener otras "cartas" asociadas, me refiero a habilidades pasivas o activas relacionadas con las mismas, y corresponden a un color determinado.
 
 Entre los distintos tipos de cartas que nos podemos encontrar contamos con:
 
@@ -328,7 +326,7 @@ Entre los distintos tipos de cartas que nos podemos encontrar contamos con:
 2. `Spell`.
 3. `Creep`, estas criaturas al igual que los heroes pueden contar con `attack`, `hit_points` y `armor`.
 
-Todas ellas cuentan con un campo llamado `mana_cost` que indica cuanto maná cuesta jugarlas, en el caso de los `Improvement` y `Spell` puede darse el caso que que cuente con una propiedad llamada `is_crosslane`, en el caso de que exista esta propiedad tendra ciertos efectos directos sobre el juego que ahora mismo no nos interesan.
+Todas ellas cuentan con un campo llamado `mana_cost` que indica cuanto maná cuesta jugarlas, en el caso de los `Improvement` y `Spell` puede darse el caso que cuente con una propiedad llamada `is_crosslane`, en el caso de que exista esta propiedad tendrá ciertos efectos directos sobre el juego que ahora mismo no nos interesan.
 
 ![Oglodi Vandal Card Image
 ](./assets/oglodi_vandal.png)
@@ -427,7 +425,6 @@ Todas ellas cuentan con un campo llamado `mana_cost` que indica cuanto maná cue
 }
 ```
 
-
 ## Que nos interesa
 
 Dado que nuestra aplicación se va a centrar en ver los precios de las cartas vamos a limitar los tipos de cartas con los que vamos a trabajar y ver con que campos nos vamos a quedar.
@@ -438,22 +435,22 @@ En cuanto a tipos de cartas, solo vamos a coger las siguientes:
 3. `Spell`
 4. `Improvement`
 
-> Una manera rápida, sencilla y para toda la família de filtrar estas cartas es que cuando recorramos la `card_list` del JSON object, solo nos quedemos con las cartas que cuenten con el campo `item_def`.
+> Una manera rápida, sencilla y para toda la familia de filtrar estas cartas es que cuando recorramos la `card_list` del JSON object, solo nos quedemos con las cartas que cuenten con el campo `item_def`.
 
 A parte de coger solo esaos tipos de cartas, nos vamos a quedar tan solo con los siguientes campos:
 1. `card_id`
 2. `card_type`
-3. `card_name`, con english como principal, ya veremos para que utilizaremos los demas.
-4. `large_image`, default como principal.
+3. `card_name`, con english como principal, ya veremos para que utilizaremos los demás.
+4. `large_image`, default cómo principal.
 5. `illustrator`
 6. `rarity`
 7. `item_def`
 
 ## Marketplace
 
-VALVE en su plataforma STEAM, nos ofrece la posibilidad de comprar y vender nuestras cartas, en el proyecto vamos a intentar ver cuales son los precios de todas y cada una de las cartas y calcular un coste total si tuviesemos que comprarlas todas, a continuación os explico como encontrar el precio de una carta actual(cambia cada 5sec) y poder vel el precio medio que la carta a tenido los últimos meses.
+VALVE en su plataforma STEAM, nos ofrece la posibilidad de comprar y vender nuestras cartas, en el proyecto vamos a intentar ver cuáles son los precios de todas y cada una de las cartas y calcular un coste total si tuviésemos que comprarlas todas, a continuación os explico cómo encontrar el precio de una carta actual(cambia cada 5sec) y poder vel el precio medio que la carta a tenido los últimos meses.
 
-Para ver el precio actual de la carta (tanto el menor, como el precio medio en el instante), vamos a realizar una petición get a la siguiente dirección, suponiento que los datos de la carta objetivo son los siguientes:
+Para ver el precio actual de la carta (tanto el menor, como el precio medio en el instante), vamos a realizar una petición GET a la siguiente dirección, suponiendo que los datos de la carta objetivo son los siguientes:
 
 ```json
 {
@@ -469,10 +466,10 @@ Para ver el precio actual de la carta (tanto el menor, como el precio medio en e
 ```
 https://steamcommunity.com/market/priceoverview/?country=ES&currency=3&appid=583950&market_hash_name=110020
 ```
-En la dirección vemos que tenemos como parametros importantes:
+En la dirección vemos que tenemos como parámetros importantes:
 
-1. `currency=3`. Que indica que el precio al que tiene que devolver la carta sea en €, si pusiesemos `currency=1` lo devolvería en dolares.
-2. `appid=583950`. Que corresponde a la appid de el juego de Artifact.
+1. `currency=3`. Que indica que el precio al que tiene que devolver la carta sea en €, si pusiésemos `currency=1` lo devolvería en dolares.
+2. `appid=583950`. Que corresponde a la appid del juego de Artifact.
 3. `market_hash_name`. Que corresponde al campo `item_def` de la carta objetivo a la que queremos sacarle el precio.
 
 Como resultado de la consulta obtendremos.
@@ -487,12 +484,9 @@ Como resultado de la consulta obtendremos.
 ```
 Los campos son bastante descriptivos.
 
-
 ## Contributing
 
-
 ## Versioning
-
 
 ## Authors
 
