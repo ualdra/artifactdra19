@@ -443,7 +443,7 @@ En cuanto a tipos de cartas, solo vamos a coger las siguientes:
 A parte de coger solo esaos tipos de cartas, nos vamos a quedar tan solo con los siguientes campos:
 1. `card_id`
 2. `card_type`
-3. `card_name`, con default como principal, ya veremos para que utilizaremos los demas.
+3. `card_name`, con english como principal, ya veremos para que utilizaremos los demas.
 4. `large_image`, default como principal.
 5. `illustrator`
 6. `rarity`
@@ -452,6 +452,41 @@ A parte de coger solo esaos tipos de cartas, nos vamos a quedar tan solo con los
 ## Marketplace
 
 VALVE en su plataforma STEAM, nos ofrece la posibilidad de comprar y vender nuestras cartas, en el proyecto vamos a intentar ver cuales son los precios de todas y cada una de las cartas y calcular un coste total si tuviesemos que comprarlas todas, a continuación os explico como encontrar el precio de una carta actual(cambia cada 5sec) y poder vel el precio medio que la carta a tenido los últimos meses.
+
+Para ver el precio actual de la carta (tanto el menor, como el precio medio en el instante), vamos a realizar una petición get a la siguiente dirección, suponiento que los datos de la carta objetivo son los siguientes:
+
+```json
+{
+    "card_id":10020,
+    "card_type":"Hero",
+    "card_name":"Axe",
+    "large_image":"https://steamcdn-a.akamaihd.net/apps/583950/icons/set01/10020_large_english.4a5af7eea9858435987a3b5a468879059caa6ae2.png",
+    "illustrator":"Tyler Jacobson",
+    "rarity":"Rare",
+    "item_def":110020,
+}
+```
+```
+https://steamcommunity.com/market/priceoverview/?country=ES&currency=3&appid=583950&market_hash_name=110020
+```
+En la dirección vemos que tenemos como parametros importantes:
+
+1. `currency=3`. Que indica que el precio al que tiene que devolver la carta sea en €, si pusiesemos `currency=1` lo devolvería en dolares.
+2. `appid=583950`. Que corresponde a la appid de el juego de Artifact.
+3. `market_hash_name`. Que corresponde al campo `item_def` de la carta objetivo a la que queremos sacarle el precio.
+
+Como resultado de la consulta obtendremos.
+
+```json
+{
+    "success":true,
+    "lowest_price":"10,47\u20ac",
+    "volume":"668",
+    "median_price":"10,23\u20ac"
+}
+```
+Los campos son bastante descriptivos.
+
 
 ## Contributing
 
