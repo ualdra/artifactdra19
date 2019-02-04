@@ -492,7 +492,7 @@ Los campos son bastante descriptivos.
 
 * **Manel Mena** - *Initial work* - [manelme.com](https://manelme.com/)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/ualdra/artifact19/graphs/contributors) who participated in this project.
 
 ## License
 
@@ -500,6 +500,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
