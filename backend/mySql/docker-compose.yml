@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+   bd_mySql:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     ports:
+       - "3306:3306"
+     environment:
+       MYSQL_ROOT_PASSWORD: PepitoElDeLosPalotes   
+volumes:
+    db_data:
