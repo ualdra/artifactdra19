@@ -28,19 +28,13 @@ $cards = $json->{'card_set'}->{'card_list'};
         $insertMainTable = "CREATE TABLE Cartas ( \n card_id int, \n card_type varchar(10), \n illustrator varchar(30), \n rarity varchar(10), \n item_def varchar(40));\n";
         
         //Tablas de Idiomas
-        $inserLanguageTable = "CREATE TABLE CardName (\ncart_id int, ";
-        foreach(array_keys(get_object_vars($cards[0]->{'card_name'})) as &$name)
-        $inserLanguageTable=$inserLanguageTable."\n".$name." varchar (30),";
-        $inserLanguageTable=substr($inserLanguageTable,0,-1).");\n";
+        $inserLanguageTable = "CREATE TABLE CardName (\n card_id int, \n lang varchar(30), \n value_ varchar(30));\n";
 
         //$insertDescriptionTable = str_replace('CardName','CardDescription',$inserLanguageTable);
 
-        $inserLargeImage = "CREATE TABLE LargeImage (\ncart_id int, ";
-        foreach(array_keys(get_object_vars($cards[0]->{'large_image'})) as &$name)
-        $inserLargeImage=$inserLargeImage."\n".$name." varchar (50),";
-        $inserLargeImage=substr($inserLargeImage,0,-1).");\n";
-
-        $inserLargeImage = str_replace('default','PorDefecto',$inserLargeImage); //default es una palabra reservada en SQL
+        $inserLargeImage = "CREATE TABLE LargeImage (\n card_id int, \n lang varchar(30), \n value_ varchar(30));\n\n";
+        
+        //$inserLargeImage = str_replace('default','PorDefecto',$inserLargeImage); //default es una palabra reservada en SQL
 
     //Rellenando tablas
     $RellenoDeTabalas ="";
@@ -59,18 +53,15 @@ $cards = $json->{'card_set'}->{'card_list'};
         $elemntoTabalaPrincipal = "INSERT INTO Cartas VALUES ($card_id,'$card_type','$illustrator','$rarity',$item_def);\n";
         
         //Rellenando CardName
-        $cardNameEntry = "INSERT INTO CardName VALUES($card_id,";
+        $cardNameEntry = "";
         for($j = 0; $j < count(array_values(get_object_vars($card_name))); $j++)
-            $cardNameEntry.='"'.array_values(get_object_vars($card_name))[$j].'",';
-
-        $cardNameEntry=substr($cardNameEntry,0,-1).");\n";
+            $cardNameEntry.='INSERT INTO CardName VALUES('.$card_id.',"'.array_keys(get_object_vars($card_name))[$j].'","'.array_values(get_object_vars($card_name))[$j].'");'."\n";
 
         //Rellenando LargeImage
-        $largeImageEntry = "INSERT INTO LargeImage VALUES($card_id,";
+        $largeImageEntry ="";
         for($j = 0; $j < count(array_values(get_object_vars($large_image))); $j++)
-            $largeImageEntry.="'".array_values(get_object_vars($large_image))[$j]."',";
+        $largeImageEntry.= 'INSERT INTO LargeImage VALUES('.$card_id.',"'.array_keys(get_object_vars($large_image))[$j].'","'.array_values(get_object_vars($large_image))[$j].'");'."\n";
 
-        $largeImageEntry=substr($largeImageEntry,0,-1).");\n";
 
         $RellenoDeTabalas.=$elemntoTabalaPrincipal.$cardNameEntry.$largeImageEntry;
         }
