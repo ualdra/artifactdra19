@@ -14,5 +14,8 @@ services:
     
     jar:
         build: jar
+        restart: always
+        depends_on:
+        - "db"
         ports:
             - "8084:8084"
