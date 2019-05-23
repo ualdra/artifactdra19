@@ -10,12 +10,12 @@ export class MemberListComponent implements OnInit {
   public title: string;
 
 
-  cards = ['Vándalo Oglodi', 'Bombasto', 'Magneta', 'Tornado','Jefferson',
-          'Windstorm', 'Bombasto', 'Magneta', 'Tornado','Jefferson'];
+  usuarios = ['Jose', 'Jesus ', 'Jefferson', 'Razvan','Julio',
+          'Windstorm', 'Bombasto', 'Santi', 'Tornado','pepe'];
   
 
   constructor() {
-    this.title = 'Lista con foto y nombre';
+    this.title = 'Lista  foto, nombre y descriptción';
     
    }
 
