@@ -1,0 +1,15 @@
+.cards_list {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+.cards_list_title {
+  font-size: 18px;
+}
+
+.cards_list_helper {
+  padding: 5px;
+  display: grid;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  grid-template-columns: auto auto auto auto auto;
+}
