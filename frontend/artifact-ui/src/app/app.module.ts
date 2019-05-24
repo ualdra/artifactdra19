@@ -18,6 +18,7 @@ import { LanguageSelectorComponent } from './language-selector/language-selector
   declarations: [AppComponent, GotNavBarComponent, MemberListComponent, 
     CardListItemComponent, CardListComponent, LanguageSelectorComponent],
   imports: [BrowserModule, AppRoutingModule, MatInputModule, MatCardModule, HttpClientModule],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [CardListService],
 })
 export class AppModule {}
