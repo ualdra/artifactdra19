@@ -11,9 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardListItemComponent } from 'src/app/card-list-item/card-list-item.component';
 import { CardListComponent } from 'src/app/card-list/card-list.component';
 import { CardListService } from 'src/app/services/cardList.service';
+<<<<<<< HEAD
 
 @NgModule({
   declarations: [AppComponent, GotNavBarComponent, MemberListComponent, CardListItemComponent, CardListComponent],
+=======
+import { LanguageSelectorComponent } from './language-selector/language-selector.component';
+
+
+@NgModule({
+  declarations: [AppComponent, GotNavBarComponent, MemberListComponent, 
+    CardListItemComponent, CardListComponent, LanguageSelectorComponent],
+>>>>>>> feature_#58_LanguageSelector
   imports: [BrowserModule, AppRoutingModule, MatInputModule, MatCardModule, HttpClientModule],
   bootstrap: [AppComponent],
   providers: [CardListService],
