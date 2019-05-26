@@ -1,0 +1,31 @@
+<!--<div class="members">
+    <h2>The Collaborators</h2>
+    <ul class="collaborators">
+        <li *ngFor="let collaborator of collaborators">
+          <div class="member">
+              <img src={{collaborator.picture}} alt="pic">
+              <p class="ctxt">
+                <strong class="ctitle">{{collaborator.name}}</strong>
+              
+              </p>
+          </div>
+        </li>
+      </ul>
+</div>-->
+
+<div class="studentcontainer">
+  <h2>The Collaborators</h2>
+  <div class="members">
+      <div class="card-columns">
+
+          <div class="card" *ngFor="let collaborator of collaborators">
+            <img class="card-img-top" src={{collaborator.picture}} alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{collaborator.name}}</h5>
+              <p class="card-text">{{collaborator.description}}</p>
+            </div>
+          </div>
+    
+      </div>
+  </div>
+</div>
