@@ -4,14 +4,17 @@ _Proyecto colectivo donde se pondrán en práctica los conocimientos adquiridos 
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+_Lee los readme de front y backend para poner en funcionamiento nuestro proyecto!_
+
+* **Frontend** -  [frontend](https://github.com/ualdra/artifactdra19/tree/master/backend)
+* **Backend**  - [backend](https://github.com/ualdra/artifactdra19/tree/master/frontend)
 
 ## Autores ✒️
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
 * **aff151** -  [aff151](https://github.com/aff151)
-* **AlfonsoCabreraGimenez**  - [AlfonsoCabreraGimenez]https://github.com/AlfonsoCabreraGimenez)
+* **AlfonsoCabreraGimenez**  - [AlfonsoCabreraGimenez](https://github.com/AlfonsoCabreraGimenez)
 * **antonioofdz** -  [antonioofdz](https://github.com/antonioofdz)
 * **AyadLaouissi**  - [AyadLaouissi](https://github.com/AyadLaouissi)
 * **Jorge Soriano Cáceres** -  [Bowloforanges](https://github.com/Bowloforanges)
