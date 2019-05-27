@@ -13,18 +13,70 @@ _Nuestro backend se compone simplemente de una API con metodos CRUD para el mane
 ![ScreenShot](DiagramaBaseDatos.png)
 ----
 
-## Métodos de la API
+*** Métodos de la API ***
 
-**Login User**
+## Obtener elementos
+_Devuelve todos los aditivos_
+
 ----
 * **URL**
 
-  `/cartas` - Devuelve todos los aditivos
+  `/cartas` - 
 
 * **Method:**
 
   `GET`
+
+* **Success Response:**
+
+    **Content:** `Objeto tipo carta`
 ----
+
+## Insertar elemento
+_Inserta un nuevo elemento_
+
+----
+* **URL**
+
+  `/carta` - 
+
+* **Method:**
+
+  `POST`
+
+* **Data Body**
+
+  _Se pasará por el cuerpo de la petición un objeto del tipo carta:_
+
+  ```
+    Long id;
+    String card_type;
+    String illustrator;
+    String rarity;
+    int item_def;
+  ```
+
+  * **Success Response:**
+
+    **Content:** `Objeto tipo carta`
+
+----
+
+## Obtener elemento
+_Obtiene un determinado elemento_
+
+----
+* **URL**
+
+  `/cartas/{id}` - 
+
+* **Method:**
+
+  `GET`
+
+* **Success Response:**
+
+    **Content:** `Objeto tipo carta`
 
 ### Pre-requisitos 📋
 
