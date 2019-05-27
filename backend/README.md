@@ -15,13 +15,16 @@ _Nuestro backend se compone simplemente de una API con metodos CRUD para el mane
 
 ## Métodos de la API
 
+**Login User**
+----
 * **URL**
 
-  [/cartas] - Devuelve todos los aditivos
+  `/cartas` - Devuelve todos los aditivos
 
 * **Method:**
 
   `GET`
+----
 
 ### Pre-requisitos 📋
 
