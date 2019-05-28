@@ -23,4 +23,8 @@ export class CardListService {
   getCardByURL(URL: string) {
     return this.http.get(URL + '/cardNames');
   }
+
+  getCardImages(URL: string) {
+    return this.http.get(URL);
+  }
 }
