@@ -19,9 +19,9 @@ export class CardListComponent implements OnInit {
   constructor(private cardListService: CardListService) {}
 
   ngOnInit(): void {
-    this.cardListService.getAllCards().subscribe(data => {
+    this.cardListService.getAllCards().subscribe((data: any) => {
       data._embedded.cartas.forEach(element => {
-        this.cardListService.getCardByURL(element._links.self.href).subscribe(carta => {
+        this.cardListService.getCardByURL(element._links.self.href).subscribe((carta: any) => {
           let cardAux ={
             cardNames: carta._embedded.cardNames,
             illustrator: element.illustrator,
