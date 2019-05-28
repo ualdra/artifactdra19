@@ -12,20 +12,19 @@
         </li>
       </ul>
 </div>-->
+<app-got-nav-bar></app-got-nav-bar>
 
 <div class="studentcontainer">
   <h2>The Collaborators</h2>
   <div class="members">
-      <div class="card-columns">
-
-          <div class="card" *ngFor="let collaborator of collaborators">
-            <img class="card-img-top" src={{collaborator.picture}} alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{collaborator.name}}</h5>
-              <p class="card-text">{{collaborator.description}}</p>
-            </div>
-          </div>
-    
+    <div class="card-columns">
+      <div class="card" *ngFor="let collaborator of collaborators">
+        <img class="card-img-top" src="{{ collaborator.picture }}" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{ collaborator.name }}</h5>
+          <p class="card-text">{{ collaborator.description }}</p>
+        </div>
       </div>
+    </div>
   </div>
 </div>

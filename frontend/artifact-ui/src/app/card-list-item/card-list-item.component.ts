@@ -7,11 +7,11 @@ import { Card } from 'src/app/models/Card';
   template: `
     <mat-card class="card_base">
       <mat-card-header>
-        <mat-card-title>{{ cardData.cardNames[0].value_ }}</mat-card-title>
+        <mat-card-title><h3>{{ cardData.cardNames[0].value_ }}</h3></mat-card-title>
       </mat-card-header>
       <img mat-card-image src="{{ cardData.largeImages[0].value_ }}" />
       <mat-card-footer>
-        <span class="card_footer">{{ cardData.card_type }}</span>
+        <h4>{{ cardData.card_type }}</h4>
       </mat-card-footer>
     </mat-card>
   `,
