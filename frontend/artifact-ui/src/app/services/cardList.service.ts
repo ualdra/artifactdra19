@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Card } from 'src/app/models/Card';
 
-const API_URL = 'http://localhost:8084';
+const API_URL = 'http://localhost:8084/api';
 
 @Injectable()
 export class CardListService {
@@ -18,5 +18,9 @@ export class CardListService {
 
   getCardById({ cardId, lang }: { cardId: number; lang?: string }) {
     return this.http.get(API_URL + '/cartas' + cardId, { params: { lang } });
+  }
+
+  getCardByURL(URL: string) {
+    return this.http.get<Card>(URL + '/cardNames');
   }
 }
