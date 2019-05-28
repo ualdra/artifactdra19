@@ -1,0 +1,24 @@
+
+.card-columns {
+    @include media-breakpoint-only(lg) {
+      column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+      column-count: 5;
+    }
+  } 
+
+.studentcontainer{
+    width: 100vw;
+    height: auto;
+    background-color: #c3c3c3;
+    padding: 5vw;
+    text-align: center;
+}
+
+.members{
+    width: 90vw;
+    height: auto;
+    background-color: #c3c3c3;
+    padding: 10vh 20vw;
+}

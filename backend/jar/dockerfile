@@ -1,0 +1,6 @@
+FROM openjdk:8-jdk-alpine
+RUN mkdir -p /usr/app
+WORKDIR /usr/app
+COPY artifact19-0.0.1-SNAPSHOT.jar /usr/app
+EXPOSE 8084
+CMD ["java", "-jar", "artifact19-0.0.1-SNAPSHOT.jar"]
