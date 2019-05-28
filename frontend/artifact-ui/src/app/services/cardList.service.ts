@@ -9,7 +9,7 @@ export class CardListService {
   constructor(private http: HttpClient) {}
 
   getAllCards() {
-    return this.http.get<Card[]>(API_URL + '/cartas');
+    return this.http.get<any[]>(API_URL + '/cartas');
   }
 
   saveCard(cardData: Partial<Card>) {
@@ -21,6 +21,6 @@ export class CardListService {
   }
 
   getCardByURL(URL: string) {
-    return this.http.get<Card>(URL + '/cardNames');
+    return this.http.get(URL + '/cardNames');
   }
 }
