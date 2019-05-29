@@ -4,7 +4,22 @@
 }
 .cards_list_title {
   font-size: 18px;
+  display: block;
+  text-align: center;
 }
+#search-box {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  background-size: 24px;
+  width: 500px;
+  border: transparent;
+  border-bottom: solid 1px #ccc;
+  padding: 10px 10px 10px 30px;
+  outline: none;
+}
+
+
 
 .cards_list_helper {
   padding: 5px;
