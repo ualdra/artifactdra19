@@ -8,7 +8,7 @@ import { CardListService } from 'src/app/services/cardList.service';
   template: `
   
     <div class="cards_list">
-      <span class="cards_list_title">Lista de cartas de la aplicación</span>
+      <span class="cards_list_title"><h2>Lista de cartas de la aplicación</h2></span>
       <input id="search-box" placeholder="Busca tu Carta" type="text" matInput [(ngModel)]="searchTerm"/> 
       <div *ngIf="cards.length" class="cards_list_helper">
         <app-card-list-item *ngFor="let card of cards | filter : searchTerm" [cardData]="card"></app-card-list-item>

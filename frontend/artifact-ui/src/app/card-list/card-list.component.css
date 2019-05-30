@@ -1,6 +1,8 @@
 .cards_list {
-  min-width: 100vw;
+  min-width: 90vw;
   min-height: 100vh;
+  padding-top: 20px;
+  text-align: center;
 }
 .cards_list_title {
   font-size: 18px;
