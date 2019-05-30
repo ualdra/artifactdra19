@@ -1,4 +1,5 @@
 .card_base {
+  height: 600px;
   background-color: #b8bcc1;
 }
 .card_footer {
