@@ -16,13 +16,18 @@ import { LanguageSelectorComponent } from './language-selector/language-selector
 import { CollaboratorComponent } from './collaborator/collaborator.component';
 
 import { AlertModule } from 'ngx-bootstrap';
+import { AboutComponentComponent } from './about-component/about-component.component';
+import { MainComponent } from './main/main.component';
+
+import { FormsModule } from '@angular/forms';
+import { FilterPipe} from './FilterPipe';
 
 
 @NgModule({
-  declarations: [AppComponent, GotNavBarComponent, MemberListComponent, 
-    CardListItemComponent, CardListComponent, LanguageSelectorComponent, CollaboratorComponent],
+  declarations: [AppComponent, GotNavBarComponent, MemberListComponent, FilterPipe,
+    CardListItemComponent, CardListComponent, LanguageSelectorComponent, CollaboratorComponent, AboutComponentComponent, MainComponent],
 
-  imports: [BrowserModule, AppRoutingModule, MatInputModule, MatCardModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, MatInputModule, MatCardModule, HttpClientModule],
   bootstrap: [AppComponent],
   providers: [CardListService],
 })
