@@ -13,7 +13,7 @@ _Nuestro backend se compone simplemente de una API con metodos CRUD para el mane
 ![ScreenShot](DiagramaBaseDatos.png)
 ----
 
-*** Métodos de la API ***
+### Métodos de la API
 
 ## Obtener elementos
 _Devuelve todos los aditivos_
@@ -82,7 +82,7 @@ _Obtiene un determinado elemento_
 
 _Tener instalado DOCKER en tu máquina_
 
-*** Instalación 🔧 ***
+### Instalación 🔧
 
 _Para lanzar el backend necesitas ejecutar los siguientes comandos (situandote en la raíz del backend)_
 
@@ -110,7 +110,7 @@ _Como ultimo paso tendremos que ejecutar el SCRIPT en nuestra BD para la creaci�
 Notocar.sql
 ```
 
-*** Ejecutando las pruebas ⚙️ ***
+### Ejecutando las pruebas ⚙️
 
-_Podremos ir a Postman mismamente para ejecutar los metodos CRUD de nuestra API_
+_Podremos ir a Postman mismamente para ejecutar los metodos CRUD de nuestra API, o arrancar nuestro proyecto de front_
 
