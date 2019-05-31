@@ -11,7 +11,7 @@ _Lee los readme de front y backend para poner en funcionamiento nuestro proyecto
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
+_Colaboradores:_
 
 * **aff151** -  [aff151](https://github.com/aff151)
 * **AlfonsoCabreraGimenez**  - [AlfonsoCabreraGimenez](https://github.com/AlfonsoCabreraGimenez)
