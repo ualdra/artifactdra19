@@ -21,11 +21,12 @@ import { MainComponent } from './main/main.component';
 
 import { FormsModule } from '@angular/forms';
 import { FilterPipe} from './FilterPipe';
-
+import { FooterComponent } from './footer/footer.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [AppComponent, GotNavBarComponent, MemberListComponent, FilterPipe,
-    CardListItemComponent, CardListComponent, LanguageSelectorComponent, CollaboratorComponent, AboutComponentComponent, MainComponent],
+    CardListItemComponent, CardListComponent, LanguageSelectorComponent, CollaboratorComponent, AboutComponentComponent, MainComponent, FooterComponent],
 
   imports: [BrowserModule, FormsModule, AppRoutingModule, MatInputModule, MatCardModule, HttpClientModule],
   bootstrap: [AppComponent],
